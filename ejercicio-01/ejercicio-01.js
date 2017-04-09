@@ -27,42 +27,45 @@ function cantidadDigitos(creditCardNumber){
 //Para pruebas 4 y 5
 function validarNumero(numeroTarjeta){
   var numeroString = (numeroTarjeta.toString()).split("");
-  var numeros = numeroString.map(convertirNumeros);
-  console.log(numeros);
-  //var indicesNones = (numeros.filter(numImpares)).reverse();
-  //var indicesPares = (numeros.filter(numPares)).reverse();
-  var paresMultiplicados = numeros.map(multiplicacionPares);
+  var numeros = numeroString.map(convertirNumeros); //convertir a números
   
-  var numerosSumar = paresMultiplicados.map(reducirNum);
- 
+  var paresMultiplicados = numeros.map(multiplicacionPares); //posiciones pares * 2
+
+  var numerosFinales = paresMultiplicados.map(reducirNumPar); //reducir nums a una cifra
+  
+  var sumaNumeros = numerosFinales.reduce(sumaTodos); //suma de todos los números
+  
+  if(sumaNumeros%10 === 0){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function convertirNumeros(numero){
   return parseInt(numero);
 }
 
-function numPares(elemento,i){
-  return i % 2 != 0;
-}
-function numImpares(elemento,i){
-  return i%2 == 0;
-}
-
 function multiplicacionPares(elemento,i){
-  if(i%2 != 0){
+  if(i%2 == 0){
     return elemento*2;
   }else{
     return elemento;
   }
 }
 
-function reducirNum(num){
+function reducirNumPar(num){
   if(num > 9){
     return num-9;
   }else{
     return num;
   }
 }
+
+function sumaTodos(suma,numero){
+  return suma + numero;
+}
+
 
 // NO TOCAR ESTE CÓDIGO O EXPLOTARÁ LA PC EN 10 SEGUNDOS
 if (typeof exports !== 'undefined') {
