@@ -26,20 +26,42 @@ function cantidadDigitos(creditCardNumber){
 
 //Para pruebas 4 y 5
 function validarNumero(numeroTarjeta){
-  var numeroString = numeroTarjeta.toString();
-  numeroString = numeroString.split("");
+  var numeroString = (numeroTarjeta.toString()).split("");
   var numeros = numeroString.map(convertirNumeros);
+  console.log(numeros);
+  //var indicesNones = (numeros.filter(numImpares)).reverse();
+  //var indicesPares = (numeros.filter(numPares)).reverse();
+  var paresMultiplicados = numeros.map(multiplicacionPares);
   
-  var indicesPares = numeros.filter(numPares);
-  
+  var numerosSumar = paresMultiplicados.map(reducirNum);
+ 
 }
-//Para convertir elementos de arreglo a números
+
 function convertirNumeros(numero){
   return parseInt(numero);
 }
-//Para seleccionar posiciones pares(como el arreglo empieza en 0 y no 1, son las nones)
+
 function numPares(elemento,i){
   return i % 2 != 0;
+}
+function numImpares(elemento,i){
+  return i%2 == 0;
+}
+
+function multiplicacionPares(elemento,i){
+  if(i%2 != 0){
+    return elemento*2;
+  }else{
+    return elemento;
+  }
+}
+
+function reducirNum(num){
+  if(num > 9){
+    return num-9;
+  }else{
+    return num;
+  }
 }
 
 // NO TOCAR ESTE CÓDIGO O EXPLOTARÁ LA PC EN 10 SEGUNDOS
