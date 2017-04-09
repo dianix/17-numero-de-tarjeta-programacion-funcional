@@ -26,14 +26,18 @@ function cantidadDigitos(creditCardNumber){
 
 //Para pruebas 4 y 5
 function validarNumero(numeroTarjeta){
-  var numeros = numeroTarjeta.toString();
-  numeros = numeros.split("");
+  var numeroString = numeroTarjeta.toString();
+  numeroString = numeroString.split("");
+  var numeros = numeroString.map(convertirNumeros);
   
   var indicesPares = numeros.filter(numPares);
   
 }
-
-
+//Para convertir elementos de arreglo a números
+function convertirNumeros(numero){
+  return parseInt(numero);
+}
+//Para seleccionar posiciones pares(como el arreglo empieza en 0 y no 1, son las nones)
 function numPares(elemento,i){
   return i % 2 != 0;
 }
