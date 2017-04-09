@@ -9,6 +9,11 @@ function isValidCard(creditCardNumber) {
     if(cantidadDigitos(creditCardNumber) != true){ //Prueba 3
         return("Faltan numeros");
     }
+    if(validarNumero(creditCardNumber) == true){
+        return(true);
+    } else {
+        return (false);
+    }
 }
 
 //Para prueba 3
@@ -17,6 +22,11 @@ function cantidadDigitos(creditCardNumber){
     if(numero.length == 16){
         return(true);
     }
+}
+
+//Para pruebas 4 y 5
+function validarNumero(credit){
+    
 }
 
 // NO TOCAR ESTE CÓDIGO O EXPLOTARÁ LA PC EN 10 SEGUNDOS
