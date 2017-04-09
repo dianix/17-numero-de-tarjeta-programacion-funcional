@@ -25,8 +25,17 @@ function cantidadDigitos(creditCardNumber){
 }
 
 //Para pruebas 4 y 5
-function validarNumero(credit){
-    
+function validarNumero(numeroTarjeta){
+  var numeros = numeroTarjeta.toString();
+  numeros = numeros.split("");
+  
+  var indicesPares = numeros.filter(numPares);
+  
+}
+
+
+function numPares(elemento,i){
+  return i % 2 != 0;
 }
 
 // NO TOCAR ESTE CÓDIGO O EXPLOTARÁ LA PC EN 10 SEGUNDOS
