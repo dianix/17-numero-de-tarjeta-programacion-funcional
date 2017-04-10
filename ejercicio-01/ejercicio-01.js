@@ -9,7 +9,7 @@ function isValidCard(creditCardNumber) {
     if(cantidadDigitos(creditCardNumber) != true){ //Prueba 3
         return("Faltan numeros");
     }
-    if(validarNumero(creditCardNumber) == true){
+    if(validarNumero(creditCardNumber) == true){ //Pruebas 4 y 5
         return(true);
     } else {
         return (false);
@@ -28,17 +28,11 @@ function cantidadDigitos(creditCardNumber){
 function validarNumero(numeroTarjeta){
   var numeroString = (numeroTarjeta.toString()).split("");
   var numeros = numeroString.map(convertirNumeros); //convertir a números
-  
   var paresMultiplicados = numeros.map(multiplicacionPares); //posiciones pares * 2
-
   var numerosFinales = paresMultiplicados.map(reducirNumPar); //reducir nums a una cifra
-  
   var sumaNumeros = numerosFinales.reduce(sumaTodos); //suma de todos los números
-  
   if(sumaNumeros%10 === 0){
     return true;
-  } else {
-    return false;
   }
 }
 
